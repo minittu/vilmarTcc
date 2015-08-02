@@ -1,0 +1,1269 @@
+<div class="historicos form">
+<fieldset>
+	<legend><?php echo __('Add Historico'); ?></legend>
+		Paciente novo?<br/>
+		Sim<input type="radio" name="paciente_novo" id="paciente_novo" value="1" /> <br/>
+		Não<input type="radio" name="paciente_novo" id="paciente_velho" value="0" checked="checked" />
+		<div id="velho">	
+			<?php
+				//echo $this->Form->input('paciente_id');	
+
+			?>
+			<input type="text" id="paciente_id" class="auto-complete" />
+		</div>
+		<div id="novo">
+		<?php echo $this->Form->create('paciente', array('type' => 'get')); 
+		
+			echo $this->Form->input('nome');
+			echo $this->Form->input('sexo');
+			echo $this->Form->input('logradouro');
+			echo $this->Form->input('cidade_id');
+			echo $this->Form->input('estado_id');
+			echo $this->Form->input('telefone');
+			echo $this->Form->input('atividade');
+			echo $this->Form->input('procedencia');
+			echo $this->Form->input('rg');
+			echo $this->Form->input('orgao_exp');
+			echo $this->Form->input('responsavel');
+		?>
+		<input type="button" name="enviar Paciente" id="salvarPaciente" value="Salvar Paciente">
+		</form>
+
+		</div>
+		<div id="historico">
+			
+	<?php
+		echo $this->Form->create('Historico');
+	?>
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Rx em uso
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+      	<table class="table table-bordered">
+      		<tr>
+      			<td>&nbsp;</td>
+      			<td>Esf.</td>
+      			<td>Cil</td>
+      			<td>Eixo</td>
+      			<td>A.V</td>
+      		</tr>
+      		<tr>
+      			<td>O.D</td>
+      			<td>
+      				<input name="data[Historico][rx_esf_od]" maxlength="10" id="HistoricoRxEsfOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_cil_od]" maxlength="10" id="HistoricoRxCilOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_eixo_od]" maxlength="10" id="HistoricoRxEixoOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_av_od]" maxlength="10" id="HistoricoRxAvOd" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td>
+      				<input name="data[Historico][rx_es_oe]" maxlength="10" id="HistoricoRxEsOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_cil_oe]" maxlength="10" id="HistoricoRxCilOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_eixo_oe]" maxlength="10" id="HistoricoRxEixoOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_av_oe]" maxlength="10" id="HistoricoRxAvOe" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>ADD</td>
+      			<td>
+      				<input name="data[Historico][rx_add_esf]" maxlength="10" id="HistoricoRxAddEsf" required="required" type="text">
+      			</td>
+      			<td colspan="2">
+      				<input name="data[Historico][rx_add_cil_eixo]" maxlength="10" id="HistoricoRxAddCilEixo" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][rx_add_av]" maxlength="10" id="HistoricoRxAddAv" required="required" type="text">
+      			</td>
+      		</tr>
+      	</table>
+      
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Lensometria
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <table class="table table-bordered">
+      		<tr>
+      			<td>Tipo Lente</td>
+      			<td>
+      				<input name="data[Historico][lens_tipo_lente]" maxlength="50" id="HistoricoLensTipoLente" required="required" type="text">
+      			</td>
+      			
+      			
+      		</tr>
+      		<tr>
+      			<td>Cor</td>
+      			<td>
+      				<input name="data[Historico][lens_cor]" maxlength="50" id="HistoricoLensCor" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>Filtro</td>
+      			<td>
+      				<input name="data[Historico][lens_filtro]" maxlength="50" id="HistoricoLensFiltro" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>Obs.:</td>
+      			<td>
+      				<input name="data[Historico][lens_obs]" maxlength="50" id="HistoricoLensObs" required="required" type="text">
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Acui. Visual
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+        		<td>&nbsp;</td>
+        		<td colspan="3" style="text-align: center;">Sem Correção</td>
+        		<td colspan="2" style="text-align: center;">Com Correção</td>
+        	</tr>
+      		<tr>
+      			<td>&nbsp;</td>
+      			<td>V.L - S.C</td>
+      			<td>P.H</td>
+      			<td>V.P - S.C</td>
+      			<td>V.L - C.C</td>
+      			<td>V.P - C.C</td>
+      		</tr>
+      		<tr>
+      			<td>O.D</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vl_sc_od]" maxlength="10" id="HistoricoAcuivisualVlScOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_ph_od]" maxlength="10" id="HistoricoAcuivisualPhOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vpsc_od]" maxlength="10" id="HistoricoAcuivisualVpscOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vlcc_od]" maxlength="10" id="HistoricoAcuivisualVlccOd" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vpcc_od]" maxlength="10" id="HistoricoAcuivisualVpccOd" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vl_sc_oe]" maxlength="10" id="HistoricoAcuivisualVlScOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_ph_oe]" maxlength="10" id="HistoricoAcuivisualPhOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vpsc_oe]" maxlength="10" id="HistoricoAcuivisualVpscOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vlcc_oe]" maxlength="10" id="HistoricoAcuivisualVlccOe" required="required" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][acuivisual_vpcc_oe]" maxlength="10" id="HistoricoAcuivisualVpccOe" required="required" type="text">
+      			</td>
+      		</tr>
+      		<tr>
+      			<td>Optotipo</td>
+      			<td colspan="5">
+      				<input name="data[Historico][acuivisual_optotipo]" maxlength="100" id="HistoricoAcuivisualOptotipo" type="text">
+      			</td>
+      		</tr>
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          Refl. Pup.
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>&nbsp;</td>
+      			<td>Fotomotor</td>
+      			<td>Consensual</td>
+      			<td>Acomodativo</td>
+      		</tr>
+      		<tr>
+      			<td>O.D</td>
+      			<td>
+      				<input name="data[Historico][reflpup_fotomotor_od]" maxlength="10" id="HistoricoReflpupFotomotorOd" type="text" />
+      			</td>
+      			<td>
+      				<input name="data[Historico][reflpup_consensual_od]" maxlength="10" id="HistoricoReflpupConsensualOd" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][reflpup_acomodativo_od]" maxlength="10" id="HistoricoReflpupAcomodativoOd" type="text">
+      			</td>      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td>
+      				<input name="data[Historico][reflpup_fotomotor_oe]" maxlength="10" id="HistoricoReflpupFotomotorOe" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][reflpup_consensual_oe]" maxlength="10" id="HistoricoReflpupConsensualOe" type="text">
+      			</td>
+      			<td>
+      				<input name="data[Historico][reflpup_acomodativo_oe]" maxlength="10" id="HistoricoReflpupAcomodativoOe" type="text">
+      			</td>
+      		</tr>
+      		
+      	</table>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingSix">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          Kappa 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][kappa_od]" maxlength="10" id="HistoricoKappaOd" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td>
+      				<input name="data[Historico][kappa_oe]" maxlength="10" id="HistoricoKappaOe" type="text">
+      			</td>
+      		</tr>
+      		      		
+      	</table>
+      </div>
+    </div>
+  </div> 
+   <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingSeven">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" aria-expanded="false" aria-controls="collapseSix">
+          Hirsch. 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td><input name="data[Historico][hirsch]" maxlength="100" id="HistoricoHirsch" type="text"></td>
+      			      			
+      		</tr>
+      		
+      		      		
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingEigth">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseEigth" aria-expanded="false" aria-controls="collapseSix">
+          Ducç. 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseEigth" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEigth">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][ducc_od]" maxlength="10" id="HistoricoDuccOd" type="text"></td>
+      			      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][ducc_oe]" maxlength="10" id="HistoricoDuccOe" type="text"></td>
+      			      			
+      		</tr>
+      		
+      		      		
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingNine">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseNine" aria-expanded="false" aria-controls="collapseSix">
+          Versões 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseNine" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingNine">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][versoes_od]" maxlength="10" id="HistoricoVersoesOd" type="text"></td>
+      			      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][versoes_oe]" maxlength="10" id="HistoricoVersoesOe" type="text"></td>
+      			      			
+      		</tr>
+      		<tr>
+      			<td>Obs.</td>
+      			<td><input name="data[Historico][versoes_obs]" maxlength="100" id="HistoricoVersoesObs" type="text"></td>
+      			      			
+      		</tr>
+      		
+      		      		
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="headingTen">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTen" aria-expanded="false" aria-controls="collapseSix">
+          P.P.C 
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTen" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTen">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>Objeto Real</td>
+      			<td>Luz</td>
+      			<td>Filtro</td>      			      			
+      		</tr>
+      		<tr>
+      			<td><input name="data[Historico][ppc_objeto_real]" maxlength="100" id="HistoricoPpcObjetoReal" type="text"></td>
+      			<td><input name="data[Historico][ppc_luz]" maxlength="100" id="HistoricoPpcLuz" type="text"></td>
+      			<td><input name="data[Historico][ppc_filtro]" maxlength="100" id="HistoricoPpcFiltro" type="text"></td>      			      			
+      		</tr> 		
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading11">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse11" aria-expanded="false" aria-controls="collapseSix">
+         Cover Teste
+        </a>
+      </h4>
+    </div>
+    <div id="collapse11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading11">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>Distância</td>
+      			<td>S.C <span class="fa fa-caret-up"></span></td>
+      			<td>C.C <span class="fa fa-caret-up"></span></td>      			      			
+      		</tr>
+      		<tr>
+      			<td>6m</td>
+      			<td><input name="data[Historico][coverteste_6m_sc]" maxlength="10" id="HistoricoCoverteste6mSc" type="text"><span class="fa fa-caret-up"></span></td>
+      			<td><input name="data[Historico][coverteste_6m_cc]" maxlength="10" id="HistoricoCoverteste6mCc" type="text"><span class="fa fa-caret-up"></span></td>      			      			
+      		</tr> 		
+      		<tr>
+      			<td>40cm</td>
+      			<td><input name="data[Historico][coverteste_40m_sc]" maxlength="10" id="HistoricoCoverteste40mSc" type="text"><span class="fa fa-caret-up"></span></td>
+      			<td><input name="data[Historico][coverteste_40m_cc]" maxlength="10" id="HistoricoCoverteste40mCc" type="text"><span class="fa fa-caret-up"></span></td>      		
+      		</tr> 		
+      		<tr>
+      			<td>20cm</td>
+      			<td><input name="data[Historico][coverteste_20m_sc]" maxlength="10" id="HistoricoCoverteste20mSc" type="text"><span class="fa fa-caret-up"></span></td>
+      			<td><input name="data[Historico][coverteste_20m_cc]" maxlength="10" id="HistoricoCoverteste20mCc" type="text"><span class="fa fa-caret-up"></span></td>    		
+      		</tr> 		
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading12">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse12" aria-expanded="false" aria-controls="collapseSix">
+         R.F.P
+        </a>
+      </h4>
+    </div>
+    <div id="collapse12" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading12">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>V.L</td>
+      			<td><input name="data[Historico][rfp_vl1]" maxlength="10" id="HistoricoRfpVl1" type="text"> / <input name="data[Historico][rfp_vl2]" maxlength="10" id="HistoricoRfpVl2" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>V.P</td>
+      			<td><input name="data[Historico][rfp_vp1]" maxlength="10" id="HistoricoRfpVp1" type="text"> / <input name="data[Historico][rfp_vp2]" maxlength="10" id="HistoricoRfpVp2" type="text"></td>
+      			
+      		</tr> 		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading13">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse13" aria-expanded="false" aria-controls="collapseSix">
+         R.F.N
+        </a>
+      </h4>
+    </div>
+    <div id="collapse13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>V.L</td>
+      			<td><input name="data[Historico][rfn_vl1]" maxlength="10" id="HistoricoRfnVl1" type="text"> / <input name="data[Historico][rfn_vl2]" maxlength="10" id="HistoricoRfnVl2" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>V.P</td>
+      			<td><input name="data[Historico][rfn_vp1]" maxlength="10" id="HistoricoRfnVp1" type="text"> / <input name="data[Historico][rfn_vp2]" maxlength="10" id="HistoricoRfnVp2" type="text"></td>
+      			
+      		</tr> 		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading14">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse14" aria-expanded="false" aria-controls="collapseSix">
+         A.A.
+        </a>
+      </h4>
+    </div>
+    <div id="collapse14" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading14">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][aa_od]" maxlength="10" id="HistoricoAaOd" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][aa_oe]" maxlength="10" id="HistoricoAaOe" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Distância</td>
+      			<td><input name="data[Historico][aa_distancia]" maxlength="10" id="HistoricoAaDistancia" type="text"></td>
+      			
+      		</tr> 		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading15">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse15" aria-expanded="false" aria-controls="collapseSix">
+        Flex. Mon.
+        </a>
+      </h4>
+    </div>
+    <div id="collapse15" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading15">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>      			
+      			<td>+&nbsp;<input name="data[Historico][flexmon_od1]" maxlength="10" id="HistoricoFlexmonOd1" type="text">/ - &nbsp;<input name="data[Historico][flexmon_od2]" maxlength="10" id="HistoricoFlexmonOd2" type="text"></td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td>+&nbsp;<input name="data[Historico][flexmon_oe1]" maxlength="10" id="HistoricoFlexmonOe1" type="text"> / - &nbsp;<input name="data[Historico][flexmon_oe2]" maxlength="10" id="HistoricoFlexmonOe2" type="text"> </td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Distância</td>
+      			<td><input name="data[Historico][aa_distancia]" maxlength="10" id="HistoricoAaDistancia" type="text"></td>
+      			
+      		</tr> 		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading16">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse16" aria-expanded="false" aria-controls="collapseSix">
+        Facil.
+        </a>
+      </h4>
+    </div>
+    <div id="collapse16" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading16">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>      			
+      			<td><input name="data[Historico][facil_od]" maxlength="10" id="HistoricoFacilOd" type="text"> cpm</td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][facil_oe]" maxlength="10" id="HistoricoFacilOe" type="text"> cpm</td>
+      			
+      		</tr> 		      				
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading17">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse17" aria-expanded="false" aria-controls="collapseSix">
+        AC/A
+        </a>
+      </h4>
+    </div>
+    <div id="collapse17" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading17">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>Valor</td>      			
+      			<td><input name="data[Historico][aca_valor]" maxlength="100" id="HistoricoAcaValor" type="text"></td>
+      		</tr>
+      		<tr>
+      			<td>Metodo</td>
+      			<td><input name="data[Historico][aca_metodo]" maxlength="100" id="HistoricoAcaMetodo" type="text"></td>
+      			
+      		</tr> 		      				
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading18">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse18" aria-expanded="false" aria-controls="collapseSix">
+        Oftalmoscopia Direta
+        </a>
+      </h4>
+    </div>
+    <div id="collapse18" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading18">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td colspan="2" style="text-align: center;"><b>O.D</b></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>Brucker</td>
+      			<td><input name="data[Historico][oftalmo_brucker_od]" maxlength="100" id="HistoricoOftalmoBruckerOd" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Lente</td>
+      			<td><input name="data[Historico][oftalmo_lente_od]" maxlength="100" id="HistoricoOftalmoLenteOd" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Papila</td>
+      			<td><input name="data[Historico][oftalmo_papila_od]" maxlength="100" id="HistoricoOftalmoPapilaOd" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Escavação</td>
+      			<td><input name="data[Historico][oftalmo_escavacao_od]" maxlength="100" id="HistoricoOftalmoEscavacaoOd" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Relação A/V</td>
+      			<td><input name="data[Historico][oftalmo_relacaoav_od]" maxlength="100" id="HistoricoOftalmoRelacaoavOd" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Mácula</td>
+      			<td><input name="data[Historico][oftalmo_macula_od]" maxlength="100" id="HistoricoOftalmoMaculaOd" type="text"></td>
+      			
+      		</tr> 		
+			<tr>
+      			<td>Fixação</td>
+      			<td><input name="data[Historico][oftalmo_fixacao_od]" maxlength="100" id="HistoricoOftalmoFixacaoOd" type="text"></td>
+      			
+      		</tr> 			
+      		<tr>
+      			<td>Cor</td>
+      			<td><input name="data[Historico][oftalmo_cor_od]" maxlength="100" id="HistoricoOftalmoCorOd" type="text"></td>
+      			
+      		</tr> 
+      		<tr>
+      			<td colspan="2" style="text-align: center;"><b>O.E</b></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>Brucker</td>
+      			<td><input name="data[Historico][oftalmo_brucker_oe]" maxlength="100" id="HistoricoOftalmoBruckerOe" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Lente</td>
+      			<td><input name="data[Historico][oftalmo_lente_oe]" maxlength="100" id="HistoricoOftalmoLenteOe" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Papila</td>
+      			<td><input name="data[Historico][oftalmo_papila_oe]" maxlength="100" id="HistoricoOftalmoPapilaOe" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Escavação</td>
+      			<td><input name="data[Historico][oftalmo_escavacao_oe]" maxlength="100" id="HistoricoOftalmoEscavacaoOe" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Relação A/V</td>
+      			<td><input name="data[Historico][oftalmo_relacaoav_oe]" maxlength="100" id="HistoricoOftalmoRelacaoavOe" type="text"></td>
+      			
+      		</tr> 		
+      		<tr>
+      			<td>Mácula</td>
+      			<td><input name="data[Historico][oftalmo_macula_oe]" maxlength="100" id="HistoricoOftalmoMaculaOe" type="text"></td>
+      			
+      		</tr> 		
+			<tr>
+      			<td>Fixação</td>
+      			<td><input name="data[Historico][oftalmo_fixacao_oe]" maxlength="100" id="HistoricoOftalmoFixacaoOe" type="text"></td>
+      			
+      		</tr> 			
+      		<tr>
+      			<td>Cor</td>
+      			<td><input name="data[Historico][oftalmo_cor_oe]" maxlength="100" id="HistoricoOftalmoCorOe" type="text"></td>
+      			
+      		</tr> 		      		      		
+
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading19">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse19" aria-expanded="false" aria-controls="collapseSix">
+        Amsler
+        </a>
+      </h4>
+    </div>
+    <div id="collapse19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading19">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>      			
+      			<td><input name="data[Historico][oftalmo_amsler_od]" maxlength="10" id="HistoricoOftalmoAmslerOd" type="text"></td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][oftalmo_amsler_oe]" maxlength="10" id="HistoricoOftalmoAmslerOe" type="text"></td>
+      			
+      		</tr> 		      				
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading19">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse19" aria-expanded="false" aria-controls="collapseSix">
+        Estereop.
+        </a>
+      </h4>
+    </div>
+    <div id="collapse19" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading19">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][estereop_od]" maxlength="10" id="HistoricoEstereopOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][estereop_oe]" maxlength="10" id="HistoricoEstereopOe" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Teste</td>
+      			<td><input name="data[Historico][estereop_teste]" maxlength="10" id="HistoricoEstereopTeste" type="text"></td>
+      			
+      		</tr> 		      				
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading19">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse20" aria-expanded="false" aria-controls="collapseSix">
+        V. Cromat.
+        </a>
+      </h4>
+    </div>
+    <div id="collapse20" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading20">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D</td>
+      			<td><input name="data[Historico][vcromat_od]" maxlength="10" id="HistoricoVcromatOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][vcromat_oe]" maxlength="10" id="HistoricoVcromatOe" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Teste</td>
+      			<td><input name="data[Historico][vcromat_teste]" maxlength="10" id="HistoricoVcromatTeste" type="text"></td>
+      			
+      		</tr> 		      				
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading21">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse21" aria-expanded="false" aria-controls="collapseSix">
+        Biomicrosopia
+        </a>
+      </h4>
+    </div>
+    <div id="collapse21" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading21">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>Obs.:</td>
+      			<td><input name="data[Historico][biomicro_obs]" maxlength="100" id="HistoricoBiomicroObs" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>Sobrancelhas</td>
+      			<td><input name="data[Historico][biomicro_sobrancelhas]" maxlength="100" id="HistoricoBiomicroSobrancelhas" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Cílios</td>
+      			<td><input name="data[Historico][biomicro_cilios]" maxlength="100" id="HistoricoBiomicroCilios" type="text"></td>
+      			
+      		</tr> 		      				
+      		<tr>
+      			<td>Pálpebras</td>
+      			<td><input name="data[Historico][biomicro_palpebras]" maxlength="100" id="HistoricoBiomicroPalpebras" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Conjuntivas</td>
+      			<td><input name="data[Historico][biomicro_conjuntivas]" maxlength="100" id="HistoricoBiomicroConjuntivas" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Córneas</td>
+      			<td><input name="data[Historico][biomicro_corneas]" maxlength="100" id="HistoricoBiomicroCorneas" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Íris</td>
+      			<td><input name="data[Historico][biomicro_iris]" maxlength="100" id="HistoricoBiomicroIris" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Cristalinos</td>
+      			<td><input name="data[Historico][biomicro_cristalinos]" maxlength="100" id="HistoricoBiomicroCristalinos" type="text"></td>
+      			
+      		</tr> 
+      		      				
+      	</table>
+      </div>
+    </div>
+  </div>
+   <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading21">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse22" aria-expanded="false" aria-controls="collapseSix">
+        Ceratometria
+        </a>
+      </h4>
+    </div>
+    <div id="collapse22" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading22">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+      			<td>O.D.</td>
+      			<td><input name="data[Historico][ceratometria_aluno_od]" maxlength="10" id="HistoricoCeratometriaAlunoOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E.</td>
+      			<td><input name="data[Historico][ceratometria_aluno_oe]" maxlength="10" id="HistoricoCeratometriaAlunoOd" type="text"></td>
+      			
+      		</tr>
+      		<tr>
+      			<td>Obs.:</td>
+      			<td><input name="data[Historico][ceratometria_aluno_obs]" maxlength="10" id="HistoricoCeratometriaAlunoObs" type="text"></td>
+      			
+      		</tr> 		      				
+       	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading21">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse23" aria-expanded="false" aria-controls="collapseSix">
+        Retinoscopia
+        </a>
+      </h4>
+    </div>
+    <div id="collapse23" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading23">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+        		<td>Estática</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V</td>
+        	</tr>
+        	<tr>
+        		<td>O.D</td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_esf_od]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaEsfOd" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_cil_od]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaCilOd" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_eixo_od]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaEixoOd" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_avp_od]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaAvOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+        		<td>Dinâmica</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V</td>
+        	</tr>
+      		<tr>
+      			<td>O.E.</td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_esf_oe]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaEsfOe" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_cil_oe]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaCilOe" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_eixo_oe]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaEixoOe" type="text"></td>
+      			<td><input name="data[Historico][retinoscopia_aluno_estatica_avp_oe]" maxlength="10" id="HistoricoRetinoscopiaAlunoEstaticaAvOe" type="text"></td>   
+      			
+      		</tr>      				      				
+       	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading24">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse24" aria-expanded="false" aria-controls="collapseSix">
+  			Subjetivo
+        </a>
+      </h4>
+    </div>
+    <div id="collapse24" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading24">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+        		<td>&nbsp;</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V.L</td>
+        		<td>A.V.P</td>
+        	</tr>
+        	<tr>
+        		<td>O.D</td>
+      			<td><input name="data[Historico][subjetivo_aluno_esf_od]" maxlength="10" id="HistoricoSubjetivoAlunoEsfOd" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_cil_od]" maxlength="10" id="HistoricoSubjetivoAlunoCilOd" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_eixo_od]" maxlength="10" id="HistoricoSubjetivoAlunoEixoOd" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_avl_od]" maxlength="10" id="HistoricoSubjetivoAlunoAvlOd" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_avp_od]" maxlength="10" id="HistoricoSubjetivoAlunoAvpOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][subjetivo_aluno_esf_oe]" maxlength="10" id="HistoricoSubjetivoAlunoEsfOe" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_cil_oe]" maxlength="10" id="HistoricoSubjetivoAlunoCilOe" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_eixo_oe]" maxlength="10" id="HistoricoSubjetivoAlunoEixoOe" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_avl_oe]" maxlength="10" id="HistoricoSubjetivoAlunoAvlOe" type="text"></td>
+      			<td><input name="data[Historico][subjetivo_aluno_avp_oe]" maxlength="10" id="HistoricoSubjetivoAlunoAvpOe" type="text"></td>    
+      			
+      		</tr>
+      		<tr>
+      			<td>ADD</td>
+      			<td colspan="5"><input name="data[Historico][subjetivo_aluno_esf_add]" maxlength="10" id="HistoricoSubjetivoAlunoEsfAdd" type="text"></td>
+      			
+      			
+      		</tr>      				      				
+       	</table>
+      </div>
+    </div>
+  </div>
+    <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading25">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse25" aria-expanded="false" aria-controls="collapseSix">
+  			Afinamento
+        </a>
+      </h4>
+    </div>
+    <div id="collapse25" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading25">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+        		<td>&nbsp;</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V.L</td>
+        		<td>A.V.P</td>
+        	</tr>
+        	<tr>
+        		<td>O.D</td>
+      			<td><input name="data[Historico][afinamento_aluno_esf_od]" maxlength="10" id="HistoricoAfinamentoAlunoEsfOd" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_cil_od]" maxlength="10" id="HistoricoAfinamentoAlunoCilOd" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_eixo_od]" maxlength="10" id="HistoricoAfinamentoAlunoEixoOd" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_avl_od]" maxlength="10" id="HistoricoAfinamentoAlunoAvlOd" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_avp_od]" maxlength="10" id="HistoricoAfinamentoAlunoAvpOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td ><input name="data[Historico][afinamento_aluno_esf_oe]" maxlength="10" id="HistoricoAfinamentoAlunoEsfOe" type="text"></td>
+      			<td ><input name="data[Historico][afinamento_aluno_cil_oe]" maxlength="10" id="HistoricoAfinamentoAlunoCilOe" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_eixo_oe]" maxlength="10" id="HistoricoAfinamentoAlunoEixoOE" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_avl_oe]" maxlength="10" id="HistoricoAfinamentoAlunoAvlOe" type="text"></td>
+      			<td><input name="data[Historico][afinamento_aluno_avp_oe]" maxlength="10" id="HistoricoAfinamentoAlunoAvpOe" type="text"></td>     
+      			
+      		</tr>
+      		<tr>
+      			<td>ADD</td>
+      			<td colspan="5"><input name="data[Historico][afinamento_aluno_esf_add]" maxlength="10" id="HistoricoAfinamentoAlunoEsfAdd" type="text"></td>
+      			
+      			
+      		</tr>      				      				
+       	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading26">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse26" aria-expanded="false" aria-controls="collapseSix">
+  			Ambulatorial
+        </a>
+      </h4>
+    </div>
+    <div id="collapse26" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading26">
+      <div class="panel-body">
+        <table class="table table-bordered">
+        	<tr>
+        		<td>&nbsp;</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V.L</td>
+        		<td>A.V.P</td>
+        	</tr>
+        	<tr>
+        		<td>O.D</td>
+      			<td><input name="data[Historico][ambulatorial_aluno_esf_od]" maxlength="10" id="HistoricoAmbulatorialAlunoEsfOd" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_cil_od]" maxlength="10" id="HistoricoAmbulatorialAlunoCilOd" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_eixo_od]" maxlength="10" id="HistoricoAmbulatorialAlunoEixoOd" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_avl_od]" maxlength="10" id="HistoricoAmbulatorialAlunoAvlOd" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_avp_od]" maxlength="10" id="HistoricoAmbulatorialAlunoAvpOd" type="text"></td>      			
+      			
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][ambulatorial_aluno_esf_oe]" maxlength="10" id="HistoricoAmbulatorialAlunoEsfOe" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_cil_oe]" maxlength="10" id="HistoricoAmbulatorialAlunoCilOe" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_eixo_oe]" maxlength="10" id="HistoricoAmbulatorialAlunoEixoOe" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_avl_oe]" maxlength="10" id="HistoricoAmbulatorialAlunoAvlOe" type="text"></td>
+      			<td><input name="data[Historico][ambulatorial_aluno_avp_oe]" maxlength="10" id="HistoricoAmbulatorialAlunoAvpOe" type="text"></td>         
+      			
+      		</tr>
+      		<tr>
+      			<td>ADD</td>
+      			<td colspan="5"><input name="data[Historico][ambulatorial_aluno_esf_add]" maxlength="10" id="HistoricoAmbulatorialAlunoEsfAdd" type="text"></td>
+      			    
+      			
+      		</tr>      				      				
+       	</table>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-primary">
+    <div class="panel-heading panel-color" role="tab" id="heading26">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse26" aria-expanded="false" aria-controls="collapseSix">
+  			Ambulatorial
+        </a>
+      </h4>
+    </div>
+    <div id="collapse26" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading26">
+      <div class="panel-body">
+      <table>
+	  	<tr>
+	  		<td>
+	  			
+	  		</td>
+			<td>
+				<input name="data[Historico][rx_final_esf_oe]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_esf_add]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_cil_oe]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_avl_od]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_avl_oe]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_avp_od]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_avp_oe]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_eixo_oe]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+			<td>
+				<input name="data[Historico][rx_final_eixo_od]" maxlength="10" id="HistoricoRxFinal'" type="text"/>
+			</td>
+	  	</tr>
+  	</table>
+        <table class="table table-bordered">
+        	<tr>
+        		<td>&nbsp;</td>
+        		<td>Esf.</td>
+        		<td>Cil.</td>
+        		<td>Eixo</td>
+        		<td>A.V.L</td>
+        		<td>A.V.P</td>
+        	</tr>
+        	<tr>
+        		<td>O.D</td>
+      			<td><input name="data[Historico][rx_final_esf_od]" maxlength="10" id="HistoricoRxFinalEsfOd" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_cil_od]" maxlength="10" id="HistoricoRxFinalCilOd" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_eixo_od]" maxlength="10" id="HistoricoRxFinalEixoOd" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_avl_od]" maxlength="10" id="HistoricoRxFinalAvlOd" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_avp_od]" maxlength="10" id="HistoricoRxFinalAvpOd" type="text"/></td>
+      		</tr>
+      		<tr>
+      			<td>O.E</td>
+      			<td><input name="data[Historico][rx_final_esf_oe]" maxlength="10" id="HistoricoRxFinalEsfOe" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_cil_oe]" maxlength="10" id="HistoricoRxFinalCilOe" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_eixo_oe]" maxlength="10" id="HistoricoRxFinalEixoOe" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_avl_oe]" maxlength="10" id="HistoricoRxFinalAvlOE" type="text"/></td>
+      			<td><input name="data[Historico][rx_final_avp_oe]" maxlength="10" id="HistoricoRxFinalAvpOe" type="text"/></td>     
+      			
+      		</tr>
+      		<tr>
+      			<td>ADD</td>
+      			<td colspan="5"><input name="data[Historico][rx_final_esf_add]" maxlength="10" id="HistoricoRxFinalAvpOe" type="text" /></td>
+      			    
+      			
+      		</tr>      				      				
+       	</table>
+      </div>
+    </div>
+  </div>
+  	
+  </div>
+</div>
+		<div id="nomePaciente">
+			
+		</div>
+		<input type="hidden" id="paciente_id_hist" name="data[Historico][paciente_id]" value="" />
+	<?php
+		echo $this->Form->input('user_id');
+		
+		echo $this->Form->input('data_criacao');		
+		
+		
+		/*
+		echo $this->Form->input('biomicro_obs');
+		echo $this->Form->input('biomicro_sobrancelhas');
+		echo $this->Form->input('biomicro_cilios');
+		echo $this->Form->input('biomicro_palpebras');
+		echo $this->Form->input('biomicro_conjuntivas');
+		echo $this->Form->input('biomicro_corneas');
+		echo $this->Form->input('biomicro_iris');
+		echo $this->Form->input('biomicro_cristalinos');
+		echo $this->Form->input('ceratometria_aluno_od');
+		echo $this->Form->input('ceratometria_aluno_oe');
+		echo $this->Form->input('ceratometria_aluno_obs');
+		echo $this->Form->input('ceratometria_professor_od');
+		echo $this->Form->input('ceratometria_professor_oe');
+		echo $this->Form->input('ceratometria_professor_obs');
+		echo $this->Form->input('retinoscopia_aluno_estatica_esf_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_esf_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_cil_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_cil_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_eixo_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_eixo_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_avp_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_avp_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_esf_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_esf_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_cil_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_cil_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_eixo_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_eixo_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_avp_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_avp_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_esf_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_esf_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_cil_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_cil_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_eixo_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_eixo_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_avp_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_avp_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_esf_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_esf_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_cil_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_cil_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_eixo_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_eixo_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_avp_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_avp_oe');
+		echo $this->Form->input('subjetivo_aluno_esf_od');
+		echo $this->Form->input('subjetivo_aluno_esf_oe');
+		echo $this->Form->input('subjetivo_aluno_cil_od');
+		echo $this->Form->input('subjetivo_aluno_cil_oe');
+		echo $this->Form->input('subjetivo_aluno_avl_od');
+		echo $this->Form->input('subjetivo_aluno_avl_oe');
+		echo $this->Form->input('subjetivo_aluno_avp_od');
+		echo $this->Form->input('subjetivo_aluno_avp_oe');
+		echo $this->Form->input('subjetivo_prof_esf_od');
+		echo $this->Form->input('subjetivo_prof_esf_oe');
+		echo $this->Form->input('subjetivo_prof_cil_od');
+		echo $this->Form->input('subjetivo_prof_cil_oe');
+		echo $this->Form->input('subjetivo_prof_avl_od');
+		echo $this->Form->input('subjetivo_prof_avl_oe');
+		echo $this->Form->input('subjetivo_prof_avp_od');
+		echo $this->Form->input('subjetivo_prof_avp_oe');
+		echo $this->Form->input('subjetivo_aluno_esf_add');
+		echo $this->Form->input('subjetivo_prof_esf_add');
+		
+		echo $this->Form->input('afinamento_aluno_esf_od');
+		echo $this->Form->input('afinamento_aluno_esf_oe');
+		echo $this->Form->input('afinamento_aluno_esf_add');
+		echo $this->Form->input('afinamento_aluno_cil_od');
+		echo $this->Form->input('afinamento_aluno_cil_oe');
+		echo $this->Form->input('afinamento_aluno_avl_od');
+		echo $this->Form->input('afinamento_aluno_avl_oe');
+		echo $this->Form->input('afinamento_aluno_avp_od');
+		echo $this->Form->input('afinamento_aluno_avp_oe');
+		echo $this->Form->input('afinamento_prof_esf_od');
+		echo $this->Form->input('afinamento_prof_esf_oe');
+		echo $this->Form->input('afinamento_prof_esf_add');
+		echo $this->Form->input('afinamento_prof_cil_od');
+		echo $this->Form->input('afinamento_prof_cil_oe');
+		echo $this->Form->input('afinamento_prof_avl_od');
+		echo $this->Form->input('afinamento_prof_avl_oe');
+		echo $this->Form->input('afinamento_prof_avp_od');
+		echo $this->Form->input('afinamento_prof_avp_oe');
+		echo $this->Form->input('ambulatorial_aluno_esf_od');
+		echo $this->Form->input('ambulatorial_aluno_esf_oe');
+		echo $this->Form->input('ambulatorial_aluno_esf_add');
+		echo $this->Form->input('ambulatorial_aluno_cil_od');
+		echo $this->Form->input('ambulatorial_aluno_cil_oe');
+		echo $this->Form->input('ambulatorial_aluno_avl_od');
+		echo $this->Form->input('ambulatorial_aluno_avl_oe');
+		echo $this->Form->input('ambulatorial_aluno_avp_od');
+		echo $this->Form->input('ambulatorial_aluno_avp_oe');
+		echo $this->Form->input('ambulatorial_prof_esf_od');
+		echo $this->Form->input('ambulatorial_prof_esf_oe');
+		echo $this->Form->input('ambulatorial_prof_esf_add');
+		echo $this->Form->input('ambulatorial_prof_cil_od');
+		echo $this->Form->input('ambulatorial_prof_cil_oe');
+		echo $this->Form->input('ambulatorial_prof_avl_od');
+		echo $this->Form->input('ambulatorial_prof_avl_oe');
+		echo $this->Form->input('ambulatorial_prof_avp_od');
+		echo $this->Form->input('ambulatorial_prof_avp_oe');*/
+		echo $this->Form->input('rx_final_esf_od');
+		echo $this->Form->input('rx_final_esf_oe');
+		echo $this->Form->input('rx_final_esf_add');
+		echo $this->Form->input('rx_final_cil_od');
+		echo $this->Form->input('rx_final_cil_oe');
+		echo $this->Form->input('rx_final_avl_od');
+		echo $this->Form->input('rx_final_avl_oe');
+		echo $this->Form->input('rx_final_avp_od');
+		echo $this->Form->input('rx_final_avp_oe');
+		echo $this->Form->input('rx_final_eixo_oe');
+		echo $this->Form->input('rx_final_eixo_od');
+		echo $this->Form->input('tipo_lente');
+		echo $this->Form->input('filtro');
+		echo $this->Form->input('cor');
+		echo $this->Form->input('obs'); 
+
+	
+		echo $this->Form->end(__('Submit')); ?>
+	</div>
+	
+</fieldset>
+</div>

@@ -1,0 +1,42 @@
+$(document).ready(function(){
+	//$("#historico").hide();
+	$("#novo").hide();
+
+	$("#paciente_novo").bind("click", function(){
+		$("#novo").fadeIn();
+		$("#velho").fadeOut();
+	});
+	$("#paciente_velho").bind("click", function(){
+		$("#velho").fadeIn();
+		$("#novo").fadeOut();
+	}); 
+
+	$("#salvarPaciente").click(function(){
+		var dados = $("form#pacienteAddForm").serialize();
+		$.get(
+			 "/optometria/historicos/salvaPacienteAjax?"+dados,
+			  null,
+			  function(data) {
+			  		var data = data.replace(/"/gi, '');
+			  		if(data != 0){
+				  		var id_paciente = parseInt(data);
+				  		$("#paciente_id_hist").val(id_paciente);
+				  		$("#historico").fadeIn("slow");
+				  		$("#novo").fadeOut("slow");
+				  	}
+		});
+	});
+
+	 $( "#paciente_id" ).autocomplete({
+		source: "/optometria/historicos/pacienteAjax",
+		minLength: 2,
+		select: function( event, ui ) {
+			$("#nomePaciente").append("<p>"+ui.item.label+"</p>");
+			$("#paciente_id_hist").val(ui.item.id);
+	  		$("#historico").fadeIn("slow");
+	  		$("#novo").fadeOut("slow");
+
+		}
+	});
+	
+});

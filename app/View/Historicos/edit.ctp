@@ -1,0 +1,235 @@
+<div class="historicos form">
+<?php echo $this->Form->create('Historico'); ?>
+	<fieldset>
+		<legend><?php echo __('Edit Historico'); ?></legend>
+	<?php
+		echo $this->Form->input('id');
+		echo $this->Form->input('paciente_id');
+		echo $this->Form->input('user_id');
+		echo $this->Form->input('rx_esf_od');
+		echo $this->Form->input('rx_es_oe');
+		echo $this->Form->input('rx_cil_od');
+		echo $this->Form->input('rx_cil_oe');
+		echo $this->Form->input('rx_eixo_od');
+		echo $this->Form->input('rx_eixo_oe');
+		echo $this->Form->input('rx_av_od');
+		echo $this->Form->input('rx_av_oe');
+		echo $this->Form->input('lens_tipo_lente');
+		echo $this->Form->input('lens_cor');
+		echo $this->Form->input('lens_filtro');
+		echo $this->Form->input('lens_obs');
+		echo $this->Form->input('acuivisual_vl_sc_od');
+		echo $this->Form->input('acuivisual_vl_sc_oe');
+		echo $this->Form->input('acuivisual_ph_od');
+		echo $this->Form->input('acuivisual_ph_oe');
+		echo $this->Form->input('acuivisual_vpsc_od');
+		echo $this->Form->input('acuivisual_vpsc_oe');
+		echo $this->Form->input('acuivisual_vlcc_od');
+		echo $this->Form->input('acuivisual_vlcc_oe');
+		echo $this->Form->input('data_criacao');
+		echo $this->Form->input('acuivisual_vpcc_od');
+		echo $this->Form->input('acuivisual_vpcc_oe');
+		echo $this->Form->input('acuivisual_optotipo');
+		echo $this->Form->input('reflpup_fotomotor_od');
+		echo $this->Form->input('reflpup_fotomotor_oe');
+		echo $this->Form->input('reflpup_consensual_od');
+		echo $this->Form->input('reflpup_consensual_oe');
+		echo $this->Form->input('reflpup_acomodativo_od');
+		echo $this->Form->input('reflpup_acomodativo_oe');
+		echo $this->Form->input('kappa_od');
+		echo $this->Form->input('kappa_oe');
+		echo $this->Form->input('hirsch');
+		echo $this->Form->input('ducc_od');
+		echo $this->Form->input('ducc_oe');
+		echo $this->Form->input('versoes_od');
+		echo $this->Form->input('versoes_oe');
+		echo $this->Form->input('versoes_obs');
+		echo $this->Form->input('ppc_objeto_real');
+		echo $this->Form->input('ppc_luz');
+		echo $this->Form->input('ppc_filtro');
+		echo $this->Form->input('coverteste_6m_sc');
+		echo $this->Form->input('coverteste_6m_cc');
+		echo $this->Form->input('coverteste_40m_sc');
+		echo $this->Form->input('coverteste_40m_cc');
+		echo $this->Form->input('coverteste_20m_sc');
+		echo $this->Form->input('coverteste_20m_cc');
+		echo $this->Form->input('rfp_vl1');
+		echo $this->Form->input('rfp_vl2');
+		echo $this->Form->input('rfp_vp1');
+		echo $this->Form->input('rfp_vp2');
+		echo $this->Form->input('rfn_vl1');
+		echo $this->Form->input('rfn_vl2');
+		echo $this->Form->input('rfn_vp1');
+		echo $this->Form->input('rfn_vp2');
+		echo $this->Form->input('aa_od');
+		echo $this->Form->input('aa_oe');
+		echo $this->Form->input('aa_distancia');
+		echo $this->Form->input('flexmon_od1');
+		echo $this->Form->input('flexmon_od2');
+		echo $this->Form->input('flexmon_oe1');
+		echo $this->Form->input('flexmon_oe2');
+		echo $this->Form->input('facil_od');
+		echo $this->Form->input('facil_oe');
+		echo $this->Form->input('aca_valor');
+		echo $this->Form->input('aca_metodo');
+		echo $this->Form->input('oftalmo_brucker_od');
+		echo $this->Form->input('oftalmo_brucker_oe');
+		echo $this->Form->input('oftalmo_lente_oe');
+		echo $this->Form->input('oftalmo_lente_od');
+		echo $this->Form->input('oftalmo_papila_od');
+		echo $this->Form->input('oftalmo_papila_oe');
+		echo $this->Form->input('oftalmo_escavacao_oe');
+		echo $this->Form->input('oftalmo_escavacao_od');
+		echo $this->Form->input('oftalmo_relacaoav_od');
+		echo $this->Form->input('oftalmo_relacaoav_oe');
+		echo $this->Form->input('oftalmo_macula_od');
+		echo $this->Form->input('oftalmo_macula_oe');
+		echo $this->Form->input('oftalmo_fixacao_od');
+		echo $this->Form->input('oftalmo_fixacao_oe');
+		echo $this->Form->input('oftalmo_cor_od');
+		echo $this->Form->input('oftalmo_cor_oe');
+		echo $this->Form->input('oftalmo_amsler_od');
+		echo $this->Form->input('oftalmo_amsler_oe');
+		echo $this->Form->input('estereop_od');
+		echo $this->Form->input('estereop_oe');
+		echo $this->Form->input('estereop_teste');
+		echo $this->Form->input('vcromat_od');
+		echo $this->Form->input('vcromat_oe');
+		echo $this->Form->input('vcromat_teste');
+		echo $this->Form->input('biomicro_obs');
+		echo $this->Form->input('biomicro_sobrancelhas');
+		echo $this->Form->input('biomicro_cilios');
+		echo $this->Form->input('biomicro_palpebras');
+		echo $this->Form->input('biomicro_conjuntivas');
+		echo $this->Form->input('biomicro_corneas');
+		echo $this->Form->input('biomicro_iris');
+		echo $this->Form->input('biomicro_cristalinos');
+		echo $this->Form->input('ceratometria_aluno_od');
+		echo $this->Form->input('ceratometria_aluno_oe');
+		echo $this->Form->input('ceratometria_aluno_obs');
+		echo $this->Form->input('ceratometria_professor_od');
+		echo $this->Form->input('ceratometria_professor_oe');
+		echo $this->Form->input('ceratometria_professor_obs');
+		echo $this->Form->input('retinoscopia_aluno_estatica_esf_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_esf_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_cil_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_cil_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_eixo_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_eixo_oe');
+		echo $this->Form->input('retinoscopia_aluno_estatica_avp_od');
+		echo $this->Form->input('retinoscopia_aluno_estatica_avp_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_esf_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_esf_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_cil_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_cil_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_eixo_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_eixo_oe');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_avp_od');
+		echo $this->Form->input('retinoscopia_aluno_dinamica_avp_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_esf_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_esf_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_cil_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_cil_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_eixo_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_eixo_oe');
+		echo $this->Form->input('retinoscopia_prof_estatica_avp_od');
+		echo $this->Form->input('retinoscopia_prof_estatica_avp_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_esf_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_esf_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_cil_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_cil_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_eixo_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_eixo_oe');
+		echo $this->Form->input('retinoscopia_prof_dinamica_avp_od');
+		echo $this->Form->input('retinoscopia_prof_dinamica_avp_oe');
+		echo $this->Form->input('subjetivo_aluno_esf_od');
+		echo $this->Form->input('subjetivo_aluno_esf_oe');
+		echo $this->Form->input('subjetivo_aluno_cil_od');
+		echo $this->Form->input('subjetivo_aluno_cil_oe');
+		echo $this->Form->input('subjetivo_aluno_avl_od');
+		echo $this->Form->input('subjetivo_aluno_avl_oe');
+		echo $this->Form->input('subjetivo_aluno_avp_od');
+		echo $this->Form->input('subjetivo_aluno_avp_oe');
+		echo $this->Form->input('subjetivo_prof_esf_od');
+		echo $this->Form->input('subjetivo_prof_esf_oe');
+		echo $this->Form->input('subjetivo_prof_cil_od');
+		echo $this->Form->input('subjetivo_prof_cil_oe');
+		echo $this->Form->input('subjetivo_prof_avl_od');
+		echo $this->Form->input('subjetivo_prof_avl_oe');
+		echo $this->Form->input('subjetivo_prof_avp_od');
+		echo $this->Form->input('subjetivo_prof_avp_oe');
+		echo $this->Form->input('subjetivo_aluno_esf_add');
+		echo $this->Form->input('subjetivo_prof_esf_add');
+		echo $this->Form->input('afinamento_aluno_esf_od');
+		echo $this->Form->input('afinamento_aluno_esf_oe');
+		echo $this->Form->input('afinamento_aluno_esf_add');
+		echo $this->Form->input('afinamento_aluno_cil_od');
+		echo $this->Form->input('afinamento_aluno_cil_oe');
+		echo $this->Form->input('afinamento_aluno_avl_od');
+		echo $this->Form->input('afinamento_aluno_avl_oe');
+		echo $this->Form->input('afinamento_aluno_avp_od');
+		echo $this->Form->input('afinamento_aluno_avp_oe');
+		echo $this->Form->input('afinamento_prof_esf_od');
+		echo $this->Form->input('afinamento_prof_esf_oe');
+		echo $this->Form->input('afinamento_prof_esf_add');
+		echo $this->Form->input('afinamento_prof_cil_od');
+		echo $this->Form->input('afinamento_prof_cil_oe');
+		echo $this->Form->input('afinamento_prof_avl_od');
+		echo $this->Form->input('afinamento_prof_avl_oe');
+		echo $this->Form->input('afinamento_prof_avp_od');
+		echo $this->Form->input('afinamento_prof_avp_oe');
+		echo $this->Form->input('ambulatorial_aluno_esf_od');
+		echo $this->Form->input('ambulatorial_aluno_esf_oe');
+		echo $this->Form->input('ambulatorial_aluno_esf_add');
+		echo $this->Form->input('ambulatorial_aluno_cil_od');
+		echo $this->Form->input('ambulatorial_aluno_cil_oe');
+		echo $this->Form->input('ambulatorial_aluno_avl_od');
+		echo $this->Form->input('ambulatorial_aluno_avl_oe');
+		echo $this->Form->input('ambulatorial_aluno_avp_od');
+		echo $this->Form->input('ambulatorial_aluno_avp_oe');
+		echo $this->Form->input('ambulatorial_prof_esf_od');
+		echo $this->Form->input('ambulatorial_prof_esf_oe');
+		echo $this->Form->input('ambulatorial_prof_esf_add');
+		echo $this->Form->input('ambulatorial_prof_cil_od');
+		echo $this->Form->input('ambulatorial_prof_cil_oe');
+		echo $this->Form->input('ambulatorial_prof_avl_od');
+		echo $this->Form->input('ambulatorial_prof_avl_oe');
+		echo $this->Form->input('ambulatorial_prof_avp_od');
+		echo $this->Form->input('ambulatorial_prof_avp_oe');
+		echo $this->Form->input('rx_final_esf_od');
+		echo $this->Form->input('rx_final_esf_oe');
+		echo $this->Form->input('rx_final_esf_add');
+		echo $this->Form->input('rx_final_cil_od');
+		echo $this->Form->input('rx_final_cil_oe');
+		echo $this->Form->input('rx_final_avl_od');
+		echo $this->Form->input('rx_final_avl_oe');
+		echo $this->Form->input('rx_final_avp_od');
+		echo $this->Form->input('rx_final_avp_oe');
+		echo $this->Form->input('rx_final_eixo_oe');
+		echo $this->Form->input('rx_final_eixo_od');
+		echo $this->Form->input('ambulatorial_aluno_eixo_oe');
+		echo $this->Form->input('ambulatorial_aluno_eixo_od');
+		echo $this->Form->input('ambulatorial_prof_eixo_oe');
+		echo $this->Form->input('ambulatorial_prof_eixo_od');
+		echo $this->Form->input('tipo_lente');
+		echo $this->Form->input('filtro');
+		echo $this->Form->input('cor');
+		echo $this->Form->input('obs');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+
+		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Historico.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Historico.id'))); ?></li>
+		<li><?php echo $this->Html->link(__('List Historicos'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Pacientes'), array('controller' => 'pacientes', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Paciente'), array('controller' => 'pacientes', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Questionarios'), array('controller' => 'questionarios', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Questionario'), array('controller' => 'questionarios', 'action' => 'add')); ?> </li>
+	</ul>
+</div>
