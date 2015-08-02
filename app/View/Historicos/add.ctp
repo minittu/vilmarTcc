@@ -1,6 +1,6 @@
 <div class="historicos form">    
 <!--<form action="/vilmartcc/historicos/add" id="HistoricoAddForm" method="post" accept-charset="utf-8">-->
-<?php echo $this->Form->create('Historico');?>
+<?php echo $this->Form->create('Historico',array("onsubmit" => "return uploadImg();"));?>
   <h3 id="nomePaciente"></h3> 
   <!-- Tabs Panel -->
  <div role="tabpanel">
