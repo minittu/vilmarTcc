@@ -1,7 +1,5 @@
 		A fazer
 
- - upload de foto canvas;
-
  - editar historico;
 
  - parte do professor;
