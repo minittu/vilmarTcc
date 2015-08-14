@@ -72,8 +72,35 @@ var __slice = Array.prototype.slice;
         format = "jpeg";
       }
       mime = "image/" + format;
-      return window.open(this.el.toDataURL(mime));
+
+      //$(this.el).attr("base64",this.el.toDataURL(mime));
+      
+      var id = $(this.el).attr('id');
+
+      $.ajax({
+        type: "POST",
+        url: base_url+"historicos/uploadImg",
+        data: { 
+           img: this.el.toDataURL(mime)
+        },
+        success : function(data) {
+         var nome_arquivo = data.replace("\"", " ");
+         nome_arquivo     = nome_arquivo.replace("\"", " ");
+         
+         if(id == "biomicroscopia"){
+          $("#HistoricoBiomicroImg").val(nome_arquivo);
+         }else{
+
+          $("#HistoricoOftalmoImg").val(nome_arquivo);
+         } 
+         
+        }
+      });
+      //return window.open(this.el.toDataURL(mime));
+      //return alert(this.el.toDataURL(mime));
+      return alert("Imagem Salva Com Sucesso!");
     };
+    
     Sketch.prototype.set = function(key, value) {
       this[key] = value;
       return this.canvas.trigger("sketch.change" + key, value);

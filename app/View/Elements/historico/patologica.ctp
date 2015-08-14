@@ -60,19 +60,22 @@
               <div class="form-group">
                 <label for="HistoricoBiomicroCristalinos">cristalinos</label>
                 <input class="form-control form-group" name="data[Historico][biomicro_cristalinos]" maxlength="100" id="HistoricoBiomicroCristalinos" type="text">
+                <input class="form-control form-group" name="data[Historico][biomicro_img]" maxlength="100" id="HistoricoBiomicroImg" type="hidden">
               </div>
             </div>
             <div class="col-md-12 col-sm-3 col-xs-3">
               <div class="tools">
-                <a href="#tools_sketch" data-tool="marker">Marker</a>
-                <a href="#tools_sketch" data-tool="eraser">Eraser</a>
+                <a href="#biomicroscopia" data-tool="marker">Marcar</a>
+                <a href="#biomicroscopia" data-tool="eraser">Limpar</a>
               </div>
-              <canvas id="tools_sketch" width="400" height="200" style="background: url('/vilmartcc/app/webroot/img/biomicroscopia.jpg') no-repeat center center;"></canvas>
+              <a href="#biomicroscopia"  data-download="png" style="float: right; width: 100px;">Salvar Imagem</a>
+              <div style="background: url('/vilmartcc/app/webroot/img/biomicroscopia.jpg') no-repeat center center; width:400px;height:200px;float:left;">
+              <canvas id="biomicroscopia" width="400" height="200"></canvas>
               <script type="text/javascript">
                 $(function() {
-                  $('#tools_sketch').sketch({defaultColor: "#ff0"});
+                  $('#biomicroscopia').sketch({defaultColor: "#ff0"});
                 });
-              </script>    
+              </script></div>    
             </div>
           </div>
         </div>
@@ -220,17 +223,19 @@
                 <div class="form-group">
                   <label for="HistoricoBiomicroCristalinos">Cor</label>
                   <input class="form-control form-group" name="data[Historico][oftalmo_cor_oe]" maxlength="100" id="HistoricoOftalmoCorOe" type="text">
+                  <input class="form-control form-group" name="data[Historico][oftalmo_direta_img]" maxlength="100" id="HistoricoOftalmoImg" type="hidden">
                 </div>
               </div>
               <div class="col-md-12">
                  <div class="tools">
-                  <a href="#tools_sketch1" data-tool="marker">Marker</a>
-                  <a href="#tools_sketch1" data-tool="eraser">Eraser</a>
+                  <a href="#oftalmoscopia" data-tool="marker">Marker</a>
+                  <a href="#oftalmoscopia" data-tool="eraser">Eraser</a>
+                  <a href="#oftalmoscopia"  data-download="png" style="float: right; width: 100px;">Salvar Imagem</a>
                 </div>
-                <canvas id="tools_sketch1" width="400" height="200" style="background: url('/vilmartcc/app/webroot/img/oftalmoscopia.jpg') no-repeat center center;"></canvas>
+                <canvas id="oftalmoscopia" width="400" height="200" style="background: url('/vilmartcc/app/webroot/img/oftalmoscopia.jpg') no-repeat center center;"></canvas>
               <script type="text/javascript">
                 $(function() {
-                  $('#tools_sketch1').sketch({defaultColor: "#ff0"});
+                  $('#oftalmoscopia').sketch({defaultColor: "#ff0"});
                 });
               </script>  
               </div>

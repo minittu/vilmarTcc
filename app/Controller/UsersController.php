@@ -108,10 +108,39 @@ class UsersController extends AppController {
 
 	/* 
 	*	LOGIN
-	*/
+	*/	
 	public function login() {
 	    if ($this->Auth->login()) {
-	        $this->redirect($this->Auth->redirect());
+	        
+	        $diretorio_tmp = WWW_ROOT."img".DS.$this->Auth->user('matricula')."-".$this->Auth->user('username')."-temp";
+	        $diretorio 	   = WWW_ROOT."img".DS.$this->Auth->user('matricula')."-".$this->Auth->user('username');
+
+			// CRIA O DIRETÓRIO DE DESTINO
+		   	if (!is_dir($diretorio_tmp)) {
+		    	mkdir($diretorio_tmp);
+		      
+		   	}else{
+		   		
+		   		if(!is_dir($diretorio)){
+		   			mkdir($diretorio);
+		   		
+		   		}
+
+		   		/*$scan = scandir($diretorio_tmp);
+				
+				if(count($scan) > 2) {
+
+					//copia diretorio temp para o destino
+					$this->copiar_diretorio($diretorio_tmp,$diretorio);
+
+				}
+				else {
+					echo 'Diretório vazio';
+				}*/
+
+		   	}
+		   	$this->redirect($this->Auth->redirect());
+
 	    } else {
 	        //$this->Session->setFlash(__('Login ou password inválidos, tente novamente'));
 	    }
@@ -126,4 +155,40 @@ class UsersController extends AppController {
 	    parent::beforeFilter();
 	    $this->Auth->allow('add'); // Permitindo que os usuários se registrem
 	}
+
+	private function copiar_diretorio($diretorio, $destino, $ver_acao = false){
+      
+      if ($destino{strlen($destino) - 1} == '/'){
+      	$destino = substr($destino, 0, -1);
+        
+      }
+
+      if (!is_dir($destino)) {
+         if ($ver_acao){
+            echo "Criando diretorio {$destino}\n"; 
+         }
+
+         mkdir($destino, 0755);
+      }
+        
+      $folder = opendir($diretorio);
+       
+      while ($item = readdir($folder)){
+         if ($item == '.' || $item == '..'){
+            continue;
+            }
+         if (is_dir("{$diretorio}/{$item}")){
+            copy_dir("{$diretorio}/{$item}", "{$destino}/{$item}", $ver_acao);
+            unlink("{$diretorio}/{$item}");
+         }else{
+            if ($ver_acao){
+               echo "Copiando {$item} para {$destino}"."\n";
+            }
+            copy("{$diretorio}/{$item}", "{$destino}/{$item}");
+            unlink("{$diretorio}/{$item}");
+
+            }
+      }
+   }
+
 }

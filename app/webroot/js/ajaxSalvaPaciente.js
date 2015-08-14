@@ -3,6 +3,7 @@ base_url = window.location.protocol + '//' + url[2] + '/' + url[3] + '/';
 
 $(document).ready(function(){ 
 	//$("#historico").hide();
+
 	$("#novo").hide();
 
 	$("#paciente_novo").bind("click", function(){
@@ -23,7 +24,7 @@ $(document).ready(function(){
 			  null,
 			  function(data) {
 			  		var data = data.replace(/"/gi, '');
-			  		alert(data)
+			  		
 			  		if(data != 0){
 				  		var id_paciente = parseInt(data);
 				  		$("#paciente_id_hist").val(id_paciente);
@@ -58,31 +59,5 @@ $(document).ready(function(){
 		}
 	});
 
+
 });
-
-	function uploadImg(){
-		
-		var img1 = $("#tools_sketch1").val();
-		var img  = $("#tools_sketch").val();
-
-		var data  = img.toDataURL();
-		var data1 = img1.toDataURL();
-		
-		$.ajax({
-		  type: "POST",
-		  url: base_url+"/historicos/uploadImg",
-		  data: {
-		     img : data, 
-		     img1: data1
-		  }
-		}).done(function(o) {
-		  return true;		  
-		  //console.log('saved'); 
-		  // If you want the file to be visible in the browser 
-		  // - please modify the callback in javascript. All you
-		  // need is to return the url to the file, you just saved 
-		  // and than put the image in your browser.
-		});
-
-		
-	}

@@ -81,6 +81,29 @@ class HistoricosController extends AppController {
 				
 	}
 
+	public function uploadImg(){
+		$this->layout = "ajax"; 
+				
+		$img = $_POST['img']; // Your data 'data:image/png;base64,AAAFBfj42Pj4';
+		$img = str_replace('data:image/png;base64,', '', $img);
+		$img = str_replace(' ', '+', $img);
+		$data = base64_decode($img);
+		$nome_arquivo = md5(date('i:s')).".png"; 
+		
+		$diretorio = WWW_ROOT."img".DS.$this->Auth->user('matricula')."-".$this->Auth->user('username')."-temp";
+
+		// CRIA O DIRETÓRIO DE DESTINO
+	   if (!is_dir($diretorio)) {
+	      mkdir($diretorio);
+	      
+	   }
+
+		file_put_contents($diretorio.DS.$nome_arquivo, $data);
+
+		$this->set('retorno', $nome_arquivo);
+				
+	}
+
 /**
  * view method
  *
@@ -102,19 +125,44 @@ class HistoricosController extends AppController {
  * @return void
  */
 	public function add() {
+		
 		if ($this->request->is('post')) {
 			
 			$this->Historico->create();
 
 			if ($this->Historico->save($this->request->data)) {
 				$this->Session->setFlash(__('The historico has been saved.'));
+
+				$diretorio_tmp = WWW_ROOT."img".DS.$this->Auth->user('matricula')."-".$this->Auth->user('username')."-temp";
+		        $diretorio 	   = WWW_ROOT."img".DS.$this->Auth->user('matricula')."-".$this->Auth->user('username');
+
+				// CRIA O DIRETÓRIO DE DESTINO
+			   	if(!is_dir($diretorio)){
+			   		mkdir($diretorio);
+			   		
+			   	}
+
+		   		$scan = scandir($diretorio_tmp);
+				
+				if(count($scan) > 2) {
+
+					//copia diretorio temp para o destino
+					$this->copiar_diretorio($diretorio_tmp,$diretorio);
+
+
+				}
+				else {
+					echo 'Diretório vazio';
+				}
+
+			   	
 				return $this->redirect(array('action' => 'index'));
 			} else {
 				debug($this->Historico->invalidFields());
 				$this->Session->setFlash(__('The historico could not be saved. Please, try again.'.$this->log(print_r($this->Historico->validationErrors, true)) ));
 			}
 		}
-		
+
 		$this->loadModel('Paciente');
 		$cidades = $this->Paciente->Cidade->find('list', array("fields"=> array("Cidade.nome")));
 		$estados = $this->Paciente->Estado->find('list', array("fields"=> array("Estado.nome")));		
@@ -172,4 +220,39 @@ class HistoricosController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
+
+	private function copiar_diretorio($diretorio, $destino, $ver_acao = false){
+      
+      if ($destino{strlen($destino) - 1} == '/'){
+      	$destino = substr($destino, 0, -1);
+        
+      }
+
+      if (!is_dir($destino)) {
+         if ($ver_acao){
+            echo "Criando diretorio {$destino}\n"; 
+         }
+
+         mkdir($destino, 0755);
+      }
+        
+      $folder = opendir($diretorio);
+       
+      while ($item = readdir($folder)){
+         if ($item == '.' || $item == '..'){
+            continue;
+            }
+         if (is_dir("{$diretorio}/{$item}")){
+            copy_dir("{$diretorio}/{$item}", "{$destino}/{$item}", $ver_acao);
+            unlink("{$diretorio}/{$item}");
+         }else{
+            if ($ver_acao){
+               echo "Copiando {$item} para {$destino}"."\n";
+            }
+            copy("{$diretorio}/{$item}", "{$destino}/{$item}");
+            unlink("{$diretorio}/{$item}");
+            
+            }
+      }
+   }
 }
